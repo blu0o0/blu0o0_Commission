@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bobby Art Commissions</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: #111;
+      color: white;
+      text-align: center;
+    }
+
+    img {
+      width: 250px;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    .box {
+      background: #222;
+      padding: 20px;
+      margin: 20px auto;
+      width: 300px;
+      border-radius: 10px;
+    }
+
+    select, input {
+      margin: 5px;
+      padding: 5px;
+    }
+
+    button {
+      padding: 10px;
+      background: crimson;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🎨 Bobby Art Gallery</h1>
+
+<img src="https://via.placeholder.com/250">
+<img src="https://via.placeholder.com/250">
+<img src="https://via.placeholder.com/250">
+
+<h2>💰 Commission Form</h2>
+
+<div class="box">
+
+<form action="paltaobobby30@gmail.com" method="POST">
+
+<input type="text" name="name" placeholder="Your Name" required><br>
+<input type="email" name="email" placeholder="Your Email" required><br>
+
+<select id="type" name="type" onchange="calculate()">
+  <option value="20">Bust - $20</option>
+  <option value="30">Half Body - $30</option>
+  <option value="40">Full Body - $40</option>
+</select><br>
+
+<label>
+<input type="checkbox" id="extra" name="extra" onchange="calculate()">
+Extra Character (+$15)
+</label><br>
+
+<h3>Total: $<span id="total">20</span></h3>
+
+<input type="hidden" name="total_price" id="hiddenTotal">
+
+<button type="submit">Send Commission Request</button>
+
+</form>
+
+</div>
+
+<script>
+function calculate() {
+  let base = parseInt(document.getElementById("type").value);
+  let extra = document.getElementById("extra").checked ? 15 : 0;
+  let total = base + extra;
+
+  document.getElementById("total").innerText = total;
+  document.getElementById("hiddenTotal").value = total;
+}
+
+calculate();
+</script>
+
+</body>
+</html>
